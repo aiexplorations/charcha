@@ -1,0 +1,44 @@
+# Data directories
+/data/*
+/embeddings/*
+/ollama/*
+/openwebui/*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Environment files
+.env
+.env.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Docker
+docker-compose.override.yml
+
+# Mac specific
+.DS_Store
+
+# Images folder but create placeholder
+!/images/
+/images/*
+!/images/.gitkeep

@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+python-multipart
+langchain
+langchain-community
+faiss-cpu
+requests
+python-dotenv
+pypdf

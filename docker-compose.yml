@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: openwebui
+    volumes:
+      - ./openwebui:/app/backend/data
+    ports:
+      - "3000:8080"
+    environment:
+      - OLLAMA_API_BASE_URL=http://host.docker.internal:11434
+      - OPENAI_API_KEY=sk-xxx
+      - AUTH_SECRET=my-secret-key
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  rag-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rag-service
+    volumes:
+      - ./data:/data
+      - ./embeddings:/embeddings
+    ports:
+      - "8000:8000"
+    environment:
+      - OLLAMA_API_BASE_URL=http://host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
